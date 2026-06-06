@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delicious Restaurant - समस्तीपुर | Best Multi-Cuisine Restaurant</title>
+    <meta name="description" content="Delicious Restaurant - समस्तीपुर का सबसे अच्छा मल्टी-कुजीन रेस्टोरेंट। बिरयानी, चाइनीज़, इंडियन खाने का स्वाद लें।">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Navigation */
+        nav {
+            background: linear-gradient(135deg, #8B1538 0%, #5a0d24 100%);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: #FFD700;
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: #FFD700;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(139, 21, 56, 0.7), rgba(90, 13, 36, 0.7)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%238B1538" width="1200" height="600"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 2rem;
+            text-align: center;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #FFD700;
+            color: #8B1538;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .cta-button:hover {
+            background: #FFC700;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        /* About Section */
+        .about {
+            padding: 60px 2rem;
+            background: #f9f9f9;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #8B1538;
+            margin-bottom: 3rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: #FFD700;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            color: #8B1538;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .about-image {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        /* Menu Section */
+        .menu {
+            padding: 60px 2rem;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .menu-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .menu-card-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #8B1538, #FFD700);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+
+        .menu-card-content {
+            padding: 1.5rem;
+        }
+
+        .menu-card h4 {
+            color: #8B1538;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .menu-card p {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .price {
+            color: #FFD700;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 60px 2rem;
+            background: #f9f9f9;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .contact-card h3 {
+            color: #8B1538;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .contact-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .contact-card a {
+            color: #FFD700;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .contact-card a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: #8B1538;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Timings */
+        .timings {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            border-left: 4px solid #FFD700;
+        }
+
+        .timings h4 {
+            color: #8B1538;
+            margin-bottom: 0.5rem;
+        }
+
+        .timing-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="#" class="logo">🍽️ Delicious</a>
+            <ul>
+                <li><a href="#about">परिचय</a></li>
+                <li><a href="#menu">मेनू</a></li>
+                <li><a href="#contact">संपर्क</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Delicious Restaurant</h1>
+            <p>समस्तीपुर का सबसे अच्छा मल्टी-कुजीन रेस्टोरेंट</p>
+            <p style="font-size: 1.1rem;">स्वादिष्ट खाने का अनूठा अनुभव लें</p>
+            <a href="#contact" class="cta-button">अभी ऑर्डर करें</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">हमारे बारे में</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Delicious Restaurant में आपका स्वागत है</h3>
+                    <p>हम समस्तीपुर में सबसे प्रसिद्ध रेस्टोरेंट हैं, जहाँ आप शुद्ध और स्वादिष्ट खाना खा सकते हैं।</p>
+                    <p>हमारे शेफ़ भारतीय और चाइनीज़ खाने में विशेषज्ञ हैं। हम सबसे अच्छी सामग्री का उपयोग करते हैं।</p>
+                    <p>बिरयानी, तंदूरी, कबाब, और चाइनीज़ डिशेज़ - सब कुछ यहाँ मिलेगा।</p>
+                    <p>हमारा माहौल परिवार के साथ खाने के लिए बिल्कुल सही है।</p>
+                    
+                    <div class="timings">
+                        <h4>🕐 खुलने का समय</h4>
+                        <div class="timing-item">
+                            <span>सोमवार - शुक्रवार:</span>
+                            <strong>11:00 AM - 11:00 PM</strong>
+                        </div>
+                        <div class="timing-item">
+                            <span>शनिवार - रविवार:</span>
+                            <strong>10:00 AM - 12:00 AM</strong>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%238B1538' width='400' height='300'/%3E%3Ctext x='200' y='150' font-size='48' fill='%23FFD700' text-anchor='middle' dominant-baseline='middle'%3E🍛 🍜 🍗%3E%3C/text%3E%3C/svg%3E" alt="Restaurant" class="about-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="menu" id="menu">
+        <div class="container">
+            <h2 class="section-title">हमारा मेनू</h2>
+            <div class="menu-grid">
+                <div class="menu-card">
+                    <div class="menu-card-image">🍛</div>
+                    <div class="menu-card-content">
+                        <h4>चिकन बिरयानी</h4>
+                        <p>सुगंधित बासमती चावल के साथ कोमल चिकन का शानदार मिश्रण</p>
+                        <div class="price">₹250 - ₹350</div>
+                    </div>
+                </div>
+
+                <div class="menu-card">
+                    <div class="menu-card-image">🍗</div>
+                    <div class="menu-card-content">
+                        <h4>तंदूरी चिकन</h4>
+                        <p>मसालों में भिगोकर तंदूर में पकाया गया स्वादिष्ट चिकन</p>
+                        <div class="price">₹280 - ₹400</div>
+                    </div>
+                </div>
+
+                <div class="menu-card">
+                    <div class="menu-card-image">🍜</div>
+                    <div class="menu-card-content">
+                        <h4>चाइनीज़ नूडल्स</h4>
+                        <p>ताज़ी सब्जियों और प्रोटीन के साथ स्वादिष्ट नूडल्स</p>
+                        <div class="price">₹150 - ₹250</div>
+                    </div>
+                </div>
+
+                <div class="menu-card">
+                    <div class="menu-card-image">🥘</div>
+                    <div class="menu-card-content">
+                        <h4>पनीर टिक्का मसाला</h4>
+                        <p>मलाई और मसालों में पकाया गया कोमल पनीर</p>
+                        <div class="price">₹200 - ₹300</div>
+                    </div>
+                </div>
+
+                <div class="menu-card">
+                    <div class="menu-card-image">🍲</div>
+                    <div class="menu-card-content">
+                        <h4>मटन करी</h4>
+                        <p>परंपरागत तरीके से पकाई गई नरम और स्वादिष्ट मटन</p>
+                        <div class="price">₹300 - ₹450</div>
+                    </div>
+                </div>
+
+                <div class="menu-card">
+                    <div class="menu-card-image">🍚</div>
+                    <div class="menu-card-content">
+                        <h4>वेज बिरयानी</h4>
+                        <p>ताज़ी सब्जियों के साथ सुगंधित बासमती चावल</p>
+                        <div class="price">₹150 - ₹200</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">हमसे संपर्क करें</h2>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <h3>📍 पता</h3>
+                    <p>Delicious Restaurant<br>
+                    Near Bhola Talkies, 2nd Floor<br>
+                    Above Shiv Parwati Medical<br>
+                    Tajpur Road, Samastipur<br>
+                    Bihar - 852201</p>
+                </div>
+
+                <div class="contact-card">
+                    <h3>📞 फोन</h3>
+                    <p><a href="tel:+919939028390">+91 99390 28390</a></p>
+                    <p style="margin-top: 1rem;">सोमवार - रविवार<br>11:00 AM - 11:00 PM</p>
+                </div>
+
+                <div class="contact-card">
+                    <h3>📧 ईमेल</h3>
+                    <p><a href="mailto:deliciousspj@gmail.com">deliciousspj@gmail.com</a></p>
+                    <p style="margin-top: 1rem;">हमें मैसेज करें या कॉल करें<br>तेज़ डिलीवरी के लिए</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 3rem; text-align: center;">
+                <h3 style="color: #8B1538; margin-bottom: 1rem;">ऑनलाइन ऑर्डर करें</h3>
+                <p style="margin-bottom: 1rem;">Zomato, Swiggy, और अन्य प्लेटफॉर्म पर उपलब्ध</p>
+                <a href="tel:+919939028390" class="cta-button">अभी कॉल करें</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Delicious Restaurant, Samastipur. सर्वाधिकार सुरक्षित।</p>
+            <p>हमारे साथ खाने के लिए धन्यवाद! 🙏</p>
+        </div>
+    </footer>
+</body>
+</html>
